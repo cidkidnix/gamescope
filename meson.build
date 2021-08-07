@@ -36,12 +36,7 @@ thread_dep = dependency('threads')
 cap_dep = dependency('libcap')
 sdl_dep = dependency('SDL2')
 
-wlroots_dep = dependency(
-  'wlroots',
-  version: ['>= 0.13.0', '< 0.14.0'],
-  fallback: ['wlroots', 'wlroots'],
-  default_options: ['default_library=static', 'examples=false', 'xwayland=enabled'],
-)
+wlroots_dep = dependency('wlroots')
 
 wlroots_has_xwayland = wlroots_dep.get_variable(pkgconfig: 'have_xwayland', internal: 'have_xwayland') == 'true'
 if not wlroots_has_xwayland
